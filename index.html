@@ -4,30 +4,40 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Druphpet by alehkot</title>
-
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/alehkot/druphpet">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/alehkot/druphpet/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/alehkot/druphpet/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
     <div class="wrapper">
-      <header>
-        <h1>Druphpet</h1>
-        <p>A Puppet-based Vagrant VM suitable for instant and unified configuration of Drupal environments.</p>
 
-        <p class="view"><a href="https://github.com/alehkot/druphpet">View the Project on GitHub <small>alehkot/druphpet</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/alehkot/druphpet/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/alehkot/druphpet/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/alehkot/druphpet">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
       <section>
+        <div id="title">
+          <h1>Druphpet</h1>
+          <p>A Puppet-based Vagrant VM suitable for instant and unified configuration of Drupal environments.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/alehkot">alehkot</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
         <h1>
 <a name="druphpet-virtual-machine" class="anchor" href="#druphpet-virtual-machine"><span class="octicon octicon-link"></span></a>Druphpet Virtual Machine</h1>
 
@@ -110,7 +120,7 @@
 </li>
 <li>Execute <code>vagrant up</code>
 </li>
-</ul><p><strong>Notes</strong></p>
+</ul><p><strong>Known issues</strong></p>
 
 <ul>
 <li><p>Windows-only, to enable Samba, follow the instuctions in Vagrantfile. </p></li>
@@ -121,27 +131,30 @@
 <p>"Failed to mount folders in Linux guest. This is usually because the "vboxsf" file system is not available. Please verify that the guest additions are properly installed in the guest and can work properly." </p>
 </blockquote>
 </li>
-<li>execute the following statements:
+<li>
+<p>execute the following statements:</p>
 
 <ul>
 <li><code>vagrant ssh</code></li>
 <li>
 <code>sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions</code> </li>
-<li><code>sudo apt-get install make gcc</code></li>
-<li><code>sudo apt-get install dkms</code></li>
-<li><code>sudo /etc/init.d/vboxadd setup</code></li>
 <li><code>exit</code></li>
 <li><code>vagrant reload</code></li>
 </ul>
 </li>
+<li><p>Windows-only, to enable "rsync", install the latest version of <a href="http://www.cygwin.com">Cygwin</a> and in setup wizard pick "rsync" package to be installed (it's not included by default). Because Vagrant on Windows uses Cygdrive for rsync, you should <code>vagrant up</code> under Cygwin shell (an example location is 'c:\cygwin64\Cygwin.bat'). </p></li>
+<li>
+<p>Windows only, if during <code>vagrant up</code> using Cygwin you receive an error about "nio4r", execute the following statements:</p>
+
+<ul>
+<li><code>export NIO4R_PURE="yes"</code></li>
+</ul>
+</li>
 </ul>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/alehkot">alehkot</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
