@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Druphpet by alehkot</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Druphpet</h1>
+        <p>A Puppet-based Vagrant VM suitable for instant and unified configuration of Drupal environments.</p>
+
+        <p class="view"><a href="https://github.com/alehkot/druphpet">View the Project on GitHub <small>alehkot/druphpet</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/alehkot/druphpet/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/alehkot/druphpet/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/alehkot/druphpet">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="druphpet-virtual-machine" class="anchor" href="#druphpet-virtual-machine"><span class="octicon octicon-link"></span></a>Druphpet Virtual Machine</h1>
+
+<p>A Puppet-based Drupal-ready VM suitable for instant and unified configuration of Drupal-Dev environments.</p>
+
+<p>Based on <a href="https://drupal.org/project/vm" title="Virtual Machine">https://drupal.org/project/vm</a> project on Drupal.org.</p>
+
+<p><a href="https://github.com/puphpet/puphpet" title="Puphpet">Puphpet</a> compatible.</p>
+
+<p>Drupal.org project URL: <a href="https://drupal.org/sandbox/k0teg/2247955">Druphpet</a>.</p>
+
+<h2>
+<a name="included" class="anchor" href="#included"><span class="octicon octicon-link"></span></a>Included</h2>
+
+<ul>
+<li>Ubuntu 64-bit Precise</li>
+<li>Drush 7.x</li>
+<li>Apache 2.4</li>
+<li>PHP 5.5 with steroids:
+
+<ul>
+<li>XDebug<br>
+</li>
+<li>XHProf</li>
+<li>Soap</li>
+<li>Uploadprogress</li>
+</ul>
+</li>
+<li>Optionally, old versions of PHP are also available with the following extensions:
+
+<ul>
+<li>APC</li>
+<li>XCache</li>
+</ul>
+</li>
+<li>Apache Solr 4.7.2</li>
+<li>MySQL 5.5.37</li>
+<li>phpMyAdmin</li>
+</ul><h2>
+<a name="defaults" class="anchor" href="#defaults"><span class="octicon octicon-link"></span></a>Defaults</h2>
+
+<p><strong>Hosts</strong></p>
+
+<ul>
+<li><a href="http://drupal.dev">http://drupal.dev</a></li>
+<li><a href="http://xhprof.drupal.dev">http://xhprof.drupal.dev</a></li>
+</ul><p><strong>Database Credentials</strong></p>
+
+<ul>
+<li>Name: drupal</li>
+<li>User: drupal</li>
+<li>Pass: drupal</li>
+</ul><h2>
+<a name="minimum-requirements" class="anchor" href="#minimum-requirements"><span class="octicon octicon-link"></span></a>Minimum requirements</h2>
+
+<ul>
+<li>Git</li>
+<li>VirtualBox 4.3.10</li>
+<li>Vagrant 1.5.4</li>
+<li>(For Samba, Windows-only) PowerShell 3</li>
+</ul><h2>
+<a name="download-links-windows" class="anchor" href="#download-links-windows"><span class="octicon octicon-link"></span></a>Download links (Windows)</h2>
+
+<ul>
+<li><a href="http://download.virtualbox.org/virtualbox/4.3.10/VirtualBox-4.3.10-93012-Win.exe" title="Download VirtualBox 4.3.10">VirtualBox</a></li>
+<li><a href="https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.4.msi" title="Download Vagrant 1.5.4">Vagrant</a></li>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=34595" title="Download PowerShell 3">PowerShell 3</a></li>
+</ul><h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<ul>
+<li>Make sure you have the latests versions of VirtualBox and Vagrant installed (see 'minimum requirements' section). </li>
+<li>Clone the repository</li>
+<li>Edit your hosts file and add entries for the following (on Windows, <code>C:\Windows\System32\drivers\etc\hosts</code>):
+
+<ul>
+<li><code>192.168.9.10 drupal.dev</code></li>
+<li><code>192.168.9.10 xhprof.drupal.dev</code></li>
+</ul>
+</li>
+<li>Execute <code>vagrant up</code>
+</li>
+</ul><p><strong>Notes</strong></p>
+
+<ul>
+<li><p>Windows-only, to enable Samba, follow the instuctions in Vagrantfile. </p></li>
+<li>
+<p>Windows-only, if during <code>vagrant up</code> you receive the following error:</p>
+
+<blockquote>
+<p>"Failed to mount folders in Linux guest. This is usually because the "vboxsf" file system is not available. Please verify that the guest additions are properly installed in the guest and can work properly." </p>
+</blockquote>
+</li>
+<li>execute the following statements:
+
+<ul>
+<li><code>vagrant ssh</code></li>
+<li>
+<code>sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions</code> </li>
+<li><code>sudo apt-get install make gcc</code></li>
+<li><code>sudo apt-get install dkms</code></li>
+<li><code>sudo /etc/init.d/vboxadd setup</code></li>
+<li><code>exit</code></li>
+<li><code>vagrant reload</code></li>
+</ul>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/alehkot">alehkot</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
