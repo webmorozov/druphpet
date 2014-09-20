@@ -83,7 +83,7 @@ firewall:
     install: '1'
     rules: null
 apache:
-    install: 0
+    install: 1
     settings:
         user: www-data
         group: www-data
@@ -95,10 +95,10 @@ apache:
         - rewrite
     vhosts:
         0M1pWVWI2bhY:
-            servername: awesome.dev
+            servername: coolmath.local
             serveraliases:
-                - www.awesome.dev
-            docroot: /var/www/awesome
+                - www.coolmath.local
+            docroot: /var/www/coolmath.local/docroot
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -116,7 +116,7 @@ apache:
             ssl_certs_dir: ''
     mod_pagespeed: '1'
 nginx:
-    install: '1'
+    install: '0'
     settings:
         default_vhost: 1
         proxy_buffer_size: 128k
@@ -203,7 +203,7 @@ ruby:
                 - livereload
             bundler: '1'
 nodejs:
-    install: '1'
+    install: '0'
     npm_packages:
         - yo
         - generator-angular
@@ -214,16 +214,16 @@ nodejs:
         - jslint
 mysql:
     install: 1
-    root_password: 'awesome'
+    root_password: 'coolmath'
     adminer: 1
     databases:
         gPB9UXozXZEq:
             grant:
                 - ALL
-            name: awesome
+            name: coolmath
             host: '%'
-            user: awesome
-            password: 'awesome'
+            user: coolmath
+            password: 'coolmath'
             sql_file: ''
 postgresql:
     install: '0'
