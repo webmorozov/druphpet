@@ -95,9 +95,11 @@ apache:
         - rewrite
     vhosts:
         0M1pWVWI2bhY:
-            servername: coolmath.local
+            servername: cmatcom.local
             serveraliases:
-                - www.coolmath.local
+                - www.cmatcom.local
+                - m.cmatgame.local				
+                - cmatgame.local				
             docroot: /var/www/coolmath.local/docroot
             port: '80'
             setenv:
